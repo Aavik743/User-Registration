@@ -7,11 +7,11 @@ public class UserRegistration {
 
 	public static void main(String[] args) {
 		
-		 getPassword();
 		getFirstName();
 		getLastName();
 		getEmail();
 		getMobileNumber();
+		getPassword();
 	}
 	
 	public static void getFirstName() {
@@ -81,7 +81,7 @@ public class UserRegistration {
 			
 			System.out.println("Enter password: ");
 			String password = sc.next();
-			boolean isPassword = Pattern.matches("[0-9a-zA-z~!@#$%^&*()-_+]{8,}", password);
+			boolean isPassword = Pattern.matches("[A-Z]+[0-9a-z~!@#$%^&*()-_+]{7,}", password);
 			
 			if(isPassword) {
 				System.out.println("Valid password");
