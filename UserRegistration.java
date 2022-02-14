@@ -7,6 +7,7 @@ public class UserRegistration {
 
 	public static void main(String[] args) {
 		
+		 getPassword();
 		getFirstName();
 		getLastName();
 		getEmail();
@@ -72,6 +73,21 @@ public class UserRegistration {
 			}	
 			else {
 				System.out.println("Invalid mobile number");
+			}
+		}
+		
+		public static void getPassword() {
+			Scanner sc = new Scanner(System.in);
+			
+			System.out.println("Enter password: ");
+			String password = sc.next();
+			boolean isPassword = Pattern.matches("[0-9a-zA-z~!@#$%^&*()-_+]{8,}", password);
+			
+			if(isPassword) {
+				System.out.println("Valid password");
+			}	
+			else {
+				System.out.println("Invalid password");
 			}
 		}
 		
