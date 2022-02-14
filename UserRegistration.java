@@ -6,12 +6,12 @@ import java.util.regex.Pattern;
 public class UserRegistration {
 
 	public static void main(String[] args) {
-		
+		getPassword();
 		getFirstName();
 		getLastName();
 		getEmail();
 		getMobileNumber();
-		getPassword();
+		
 	}
 	
 	public static void getFirstName() {
@@ -81,7 +81,7 @@ public class UserRegistration {
 			
 			System.out.println("Enter password: ");
 			String password = sc.next();
-			boolean isPassword = Pattern.matches("[A-Z]+[0-9]+[0-9a-z~!@#$%^&*()-_+]{7,}", password);
+			boolean isPassword = Pattern.matches("[A-Z]@[~!@#$%^&*()-_.+]+[0-9]+[0-9a-z~!@#$%^&*()-_.+]{5,}", password);
 			
 			if(isPassword) {
 				System.out.println("Valid password");
