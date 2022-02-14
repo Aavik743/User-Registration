@@ -6,11 +6,13 @@ import java.util.regex.Pattern;
 public class UserRegistration {
 
 	public static void main(String[] args) {
-		firstName();
-		lastName();
+		
+		getFirstName();
+		getLastName();
+		getEmail();
 	}
 	
-	public static void firstName() {
+	public static void getFirstName() {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Enter first name: ");
@@ -19,14 +21,13 @@ public class UserRegistration {
 		
 		if(isFirstName) {
 			System.out.println("Valid first name");
-			;
 		}	
 		else {
 			System.out.println("Invalid first name");
 		}
 	}	
 		
-		public static void lastName() {
+		public static void getLastName() {
 			Scanner sc = new Scanner(System.in);
 			
 			System.out.println("\nEnter last name: ");
@@ -40,7 +41,24 @@ public class UserRegistration {
 				System.out.println("Invalid last name");
 			}
 
-	}
+		}
+		
+		public static void getEmail() {
+			Scanner sc = new Scanner(System.in);
+			
+			System.out.println("Enter email: ");
+			String email = sc.next();
+			boolean isEmail = Pattern.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$", email);
+			
+			if(isEmail) {
+				System.out.println("Valid email");
+			}	
+			else {
+				System.out.println("Invalid email");
+			}
+		}
+		
+		
 
 }	
 
