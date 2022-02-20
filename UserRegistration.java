@@ -1,95 +1,44 @@
 package com.bl.regex;
 
-import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
 
 	public static void main(String[] args) {
 		
-		getFirstName();
-		getLastName();
-		getEmail();
-		getMobileNumber();
-		getPassword();
-		getEmail();
+		validateFirstName("Abhik");
+		validateLastName("Hore");
+		validateEmail("avik107@gmail.com");
+		validateMobileNumber("91 9954636196");
+		validatePassword("Avik@107");
+		
 	}
 	
-	public static void getFirstName() {
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("Enter first name: ");
-		String firstName = sc.next();
+	public static boolean validateFirstName(String firstName) {
 		boolean isFirstName = Pattern.matches("[A-Z]+[a-z]{3,}", firstName);
-		
-		if(isFirstName) {
-			System.out.println("Valid first name");
-		}	
-		else {
-			System.out.println("Invalid first name");
-		}
+		return isFirstName;
 	}	
 		
-		public static void getLastName() {
-			Scanner sc = new Scanner(System.in);
-			
-			System.out.println("\nEnter last name: ");
-			String lastName = sc.next();
+		public static boolean validateLastName(String lastName) {
 			boolean isLastName = Pattern.matches("[A-Z]+[a-z]{3,}", lastName);
-			
-			if(isLastName) {
-				System.out.println("Valid last name");
-			}	
-			else {
-				System.out.println("Invalid last name");
-			}
+			return isLastName;
 
 		}
 		
-		public static void getEmail() {
-			Scanner sc = new Scanner(System.in);
-			
-			System.out.println("Enter email: ");
-			String email = sc.nextLine();
+		public static boolean validateEmail(String email) {
 			boolean isEmail = Pattern.matches("[a-zA-Z0-9_.-]+@[a-zA-Z0-9.-]+.[a-z]+.[a-z]+", email);
-			
-			if(isEmail) {
-				System.out.println("Valid email");
-			}	
-			else {
-				System.out.println("Invalid email");
-			}
+			return isEmail;
 		}
 		
 
-		public static void getMobileNumber() {
-			Scanner sc = new Scanner(System.in);
-			
-			System.out.println("Enter mobile number: ");
-			String number = sc.nextLine();
+		public static boolean validateMobileNumber(String number) {
 			boolean isNumber = Pattern.matches("^[0-9]{2}\s[0-9]{10}$", number);
-			
-			if(isNumber) {
-				System.out.println("Valid mobile number");
-			}	
-			else {
-				System.out.println("Invalid mobile number");
-			}
+			return isNumber;
 		}
 		
-		public static void getPassword() {
-			Scanner sc = new Scanner(System.in);
-			
-			System.out.println("Enter password: ");
-			String password = sc.next();
-			boolean isPassword = Pattern.matches("^(?!.*@.*@)[a-z+_-]+(.[a-z0-9])*@[a-z0-9]+(.[a-z])*.[a-z]{2,}$", password);
-			
-			if(isPassword) {
-				System.out.println("Valid password");
-			}	
-			else {
-				System.out.println("Invalid password");
-			}
+		public static boolean validatePassword(String password) {
+			boolean isPassword = Pattern.matches("(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_-])[a-zA-Z0-9].{8,}$", password);
+			return isPassword;
 		}
 		
 }	
