@@ -6,12 +6,13 @@ import java.util.regex.Pattern;
 public class UserRegistration {
 
 	public static void main(String[] args) {
-		getPassword();
+		
 		getFirstName();
 		getLastName();
 		getEmail();
 		getMobileNumber();
-		
+		getPassword();
+		getEmail();
 	}
 	
 	public static void getFirstName() {
@@ -49,8 +50,8 @@ public class UserRegistration {
 			Scanner sc = new Scanner(System.in);
 			
 			System.out.println("Enter email: ");
-			String email = sc.next();
-			boolean isEmail = Pattern.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$", email);
+			String email = sc.nextLine();
+			boolean isEmail = Pattern.matches("[a-zA-Z0-9_.-]+@[a-zA-Z0-9.-]+.[a-z]+.[a-z]+", email);
 			
 			if(isEmail) {
 				System.out.println("Valid email");
@@ -81,7 +82,7 @@ public class UserRegistration {
 			
 			System.out.println("Enter password: ");
 			String password = sc.next();
-			boolean isPassword = Pattern.matches("[A-Z]@[~!@#$%^&*()-_.+]+[0-9]+[0-9a-z~!@#$%^&*()-_.+]{5,}", password);
+			boolean isPassword = Pattern.matches("^(?!.*@.*@)[a-z+_-]+(.[a-z0-9])*@[a-z0-9]+(.[a-z])*.[a-z]{2,}$", password);
 			
 			if(isPassword) {
 				System.out.println("Valid password");
