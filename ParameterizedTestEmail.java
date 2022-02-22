@@ -52,8 +52,15 @@ public class ParameterizedTestEmail {
 		@Test
 		public void givenEmail_WhenProper_ShouldReturnAsPerCondition() {
 			UserRegistration register = new UserRegistration();
-			boolean isValid = register.validateEmail(this.email);
-			Assert.assertEquals(this.expectedResult,isValid);
+			boolean isValid;
+			String m = null;
+			try {
+				isValid = register.validateEmail(this.email);
+			} catch (InvalidEmailException e) {
+				e.printStackTrace();
+				m = e.getMessage();
+			}
+			Assert.assertEquals("\n Invalid Email \n", m);
 		}
 	}
 }
